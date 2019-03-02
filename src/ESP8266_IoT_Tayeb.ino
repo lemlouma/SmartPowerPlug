@@ -1,8 +1,8 @@
 /*
 
 Connected Object (Thing) from A to Z
-Auteur : Tayeb LEMLOUMA
-Contact : Tayeb.Lemlouma@irisa.fr
+Author: Tayeb LEMLOUMA
+Contact: Tayeb.Lemlouma@irisa.fr
 2018 ©
 
 This code is used to make any ESP8266 (version 01 or ESP01) card as a connected object (or Thing). The code allows preconfiguring the ESP01 to automatically connect to an existing  WiFi access point (A.P.) of the LAN or to make the ESP01 acts as an independent A.P.  that can be contacted directly from any device. The code enables access to the ESP01 from anywhere using the Web (HTTP protocol). Hence, using the programmed ESP01, anyone can control (turn ON or OFF) any electrical device connected with an electrical outlet to our object created on top of our programmed ESP01.

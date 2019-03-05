@@ -1,7 +1,7 @@
 # SmartPowerPlug
 Transform an ESP8266 (version 01 or ESP01) card to a Web connected power switch in a context of smart spaces and IoT
 
-## Usage
+### Usage
 This code is used to transform any ESP8266 (version 01 or ESP01) card to a connected object (or Thing). The code allows preconfiguring the ESP01 to automatically connect to an existing  WiFi access point (A.P.) of the LAN or to make the ESP01 acts as an independent A.P.  that can be contacted directly contacted from any device using the Web. 
 
 The code enables the access to the ESP01 from anywhere using the Web (HTTP protocol). Hence, using the programmed ESP01, anyone can control (turn ON or OFF) any electrical device connected with an electrical outlet to our object created on top of our programmed ESP01. At any time, the user can select the WiFi network he wants, using the implemented Web interface, or makes the object standalone in an A.P mode. All user preferences are saved in the persistent memory of the ESP8266 (EEPROM).<br/><br/>

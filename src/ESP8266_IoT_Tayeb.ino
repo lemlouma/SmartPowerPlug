@@ -5,11 +5,19 @@ Author: Tayeb LEMLOUMA
 Contact: Tayeb.Lemlouma@irisa.fr
 2018 ©
 
-This code is used to make any ESP8266 (version 01 or ESP01) card as a connected object (or Thing). The code allows preconfiguring the ESP01 to automatically connect to an existing  WiFi access point (A.P.) of the LAN or to make the ESP01 acts as an independent A.P.  that can be contacted directly from any device. The code enables access to the ESP01 from anywhere using the Web (HTTP protocol). Hence, using the programmed ESP01, anyone can control (turn ON or OFF) any electrical device connected with an electrical outlet to our object created on top of our programmed ESP01.
-At any time, the user can select the WiFi network he wants or makes the object standalone in A.P mode. All user preferences are saved in the persistent memory of the ESP8266 (EEPROM).
+This code is used to make any ESP8266 (version 01 or ESP01) card as a connected object (or Thing). The code allows preconfiguring the ESP01
+to automatically connect to an existing  WiFi access point (A.P.) of the LAN or to make the ESP01 acts as an independent A.P.  that can be 
+contacted directly from any device. The code enables access to the ESP01 from anywhere using the Web (HTTP protocol). Hence, using the 
+programmed ESP01, anyone can control (turn ON or OFF) any electrical device connected with an electrical outlet to our object created on 
+top of our programmed ESP01.
+At any time, the user can select the WiFi network he wants or makes the object standalone in A.P mode. All user preferences are saved in 
+the persistent memory of the ESP8266 (EEPROM).
 
-For a detailed explanation about the code usage and the required connections of cables and GPIOs, please refer to the following videos. Please select the youtube subtitles tool for English, as the videos were made in French.
-In these videos, the cable connections required to connect the ESP8266 are explained using a breadboard for uploading and testing the code with the Arduino IDE through an Arduino Nano. For an independent connected object, you can integrate your programmed ESP8266-01 into the printed circuit board (PCB) detailed here: http://www.lemlouma.com/papers/img/SmartPowerPlug_PCBtopSide.png.
+For a detailed explanation about the code usage and the required connections of cables and GPIOs, please refer to the following videos. 
+Please select the youtube subtitles tool for English, as the videos were made in French.
+In these videos, the cable connections required to connect the ESP8266 are explained using a breadboard for uploading and testing the code 
+with the Arduino IDE through an Arduino Nano. For an independent connected object, you can integrate your programmed ESP8266-01 into the 
+printed circuit board (PCB) detailed here: http://www.lemlouma.com/papers/img/SmartPowerPlug_PCBtopSide.png.
 
 Videos :
 Part I (23min17s): http://1do.me/pZ 
@@ -49,16 +57,20 @@ WiFiClient client; //used to handle Web clients (using Web browsers) who request
 // Setup () general algorithm:
 // 1. Display tge welcome message
 // 2. We activate the GPIO-02 (used to control the power on of the electrical device connected to our object
-// 3. Reading the memory of the ESP8266 (to consider the user preferences already saved: object mode (LAN or Internet) & preferred WiFi network (name and password)
+// 3. Reading the memory of the ESP8266 (to consider the user preferences already saved: object mode (LAN or Internet) & preferred WiFi 
+//    network (name and password)
 // 4. Depending on the saved user preferences:
 //      4.1. IF the object mode is "Internet" and there is a saved network name (SSID) and WiFi password
 //           THEN
 //                    Connect to the existing WiFi network (A.P.)
 //                    [[
 //                    IMPORTANT:
-//                      - During the attempt to access an existing A.P. (by our object), the connection of web clients to our A.P. is momentarily interrupted
-//                      - We use a Web refresh (HTML refresh) to the same IP address of our object. This is done to have the new Web page when our object is connected or becomes in A.P mode
-//                      - Before attempting to connect to an existing A.P., our object sends a status of "being connected" ("en cours de connexion") in the main web page configured with a regular HTML "refresh"
+//                      - During the attempt to access an existing A.P. (by our object), the connection of web clients to our A.P. is 
+//                      momentarily interrupted
+//                      - We use a Web refresh (HTML refresh) to the same IP address of our object. This is done to have the new Web page 
+//                      when our object is connected or becomes in A.P mode
+//                      - Before attempting to connect to an existing A.P., our object sends a status of "being connected" ("en cours de 
+//                      connexion") in the main web page configured with a regular HTML "refresh"
 //                    ]]
 //                    IF
 //                      the attempt fails
@@ -76,10 +88,10 @@ void setup() {
   listeReseauxWifi = "<select id=\"listeWi\" name=\"ssid\"><option value=\"\" selected>Mode local (pas d'Internet)</option></select>";
   Serial.begin(115200); //<----------------------------------------------------- this is for debug purposes, to be removed when all tests are completed
   delay(10);
-  Serial.println();//<---------------------------------------------------------- this is for debug purposes, to be removed when all tests are completed
-  Serial.println();//<---------------------------------------------------------- this is for debug purposes, to be removed when all tests are completed
-  Serial.println("** WELCOME TO ESP8266 **");//<-------------------------------- this is for debug purposes, to be removed when all tests are completed
-  Serial.println(codeVersion);//<----------------------------------------------- this is for debug purposes, to be removed when all tests are completed
+  Serial.println();//<-------------------------------------------- this is for debug purposes, to be removed when all tests are completed
+  Serial.println();//<-------------------------------------------- this is for debug purposes, to be removed when all tests are completed
+  Serial.println("** WELCOME TO ESP8266 **");//<------------------ this is for debug purposes, to be removed when all tests are completed
+  Serial.println(codeVersion);//<--------------------------------- this is for debug purposes, to be removed when all tests are completed
 
   // Setup the GPIO2 pin
   pinMode(pinGPIO2, OUTPUT);
@@ -205,13 +217,13 @@ void setup() {
 
   // Start the Web Server 
   WebServer.begin();
-  Serial.println("Web Server started");                           //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+  Serial.println("Web Server started");                           // this is for debug purposes, to be removed when all tests are completed 
 
   // Print the IP address
-  Serial.println("You can connect to the ESP8266 at this URL: "); //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
-  Serial.println("http://");                                      //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
-  Serial.print(WiFi.localIP());                                   //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
-  Serial.print("/");                                              //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+  Serial.println("You can connect to the ESP8266 at this URL: "); // this is for debug purposes, to be removed when all tests are completed 
+  Serial.println("http://");                                      // this is for debug purposes, to be removed when all tests are completed 
+  Serial.print(WiFi.localIP());                                   // this is for debug purposes, to be removed when all tests are completed 
+  Serial.print("/");                                              // this is for debug purposes, to be removed when all tests are completed 
 
   // Get the Mac address for our object to be dislayed by the Web user (so he/she can do NAT for example through his/her Internet box)  
   unsigned char mac[6];
@@ -227,7 +239,8 @@ void setup() {
 //        The Web requests (HTTP requests) can be:
 //        1. Turn On the electrical device connected to our object
 //        2. Turn Off the electrical device connected to our object
-//        3. Change the mode of our object (Internet [i.e. connected to an existing A.P., example the one of the home box] or LAN [become an independant A.P.])
+//        3. Change the mode of our object (Internet [i.e. connected to an existing A.P., example the one of the home box] 
+//           or LAN [become an independant A.P.])
 //        4. Trigger WiFi networks scan to discover existing WiFi networks
 //        5. Select an existing WiFi network and enter the corresponding password
 //        Note: any change is saved in memory of the ESP8266 thanks to this code
@@ -240,14 +253,14 @@ void loop() {
   }
 
   // Wait until the user sends some data
-  Serial.println("New Web user");//<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+  Serial.println("New Web user");// this is for debug purposes, to be removed when all tests are completed 
   while (!client.available()) {
     delay(1);
   }
 
   // Read the first line of the request
   String request = client.readStringUntil('\r\n');
-  Serial.println(request);//<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+  Serial.println(request);// this is for debug purposes, to be removed when all tests are completed 
   client.flush();
 
   // Process the request: (NOTE: use "else if" to optimize the processing)
@@ -287,8 +300,8 @@ void loop() {
                     
                     ssidWeb = urldecode(ssidWeb);
                     passwordWeb = urldecode(passwordWeb);
-                    Serial.println("SSID saisi (décodé): **"+ssidWeb+"**");//<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
-                    Serial.println("Password saisi (décodé): **"+passwordWeb+"**");//<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+                    Serial.println("SSID saisi (décodé): **"+ssidWeb+"**");        //<--- this is for debug purposes, to be removed when all tests are completed 
+                    Serial.println("Password saisi (décodé): **"+passwordWeb+"**");//<--- this is for debug purposes, to be removed when all tests are completed 
                 
                 
                     //1. update the SSID & PASSWD into the Web interface (if the SSID is not empty)
@@ -307,7 +320,7 @@ void loop() {
                         // write appropriate byte of the EEPROM.
                         // these values will remain there when the ESP8266 is turned Off      
                         //Write ssid to eeprom
-                        Serial.println("Writing SSID to EPROM..."); //50 first chars //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+                        Serial.println("Writing SSID to EPROM..."); //50 first chars //<--- this is for debug purposes, to be removed when all tests are completed 
                         for(int i=0;i<=(ssidWeb.length()-1);i++) //loop upto string lenght 
                         {
                           EEPROM.write(0x0F+i,ssidWeb[i]); //Write one by one with starting address of 0x0F
@@ -318,7 +331,7 @@ void loop() {
                         }
                         
                         //Write password to eeprom starting from the position number 50 (because the chars from 0 to 49 are dedicated to SSID)
-                        Serial.println("Writing PASS to EPROM..."); //50 first chars //<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+                        Serial.println("Writing PASS to EPROM..."); //50 first chars //<--- this is for debug purposes, to be removed when all tests are completed 
                         int j=0;
                         for(int i=50;i<=(50+passwordWeb.length()-1);i++) //loop upto string lenght
                         {
@@ -336,7 +349,7 @@ void loop() {
                         //3. try to connect to the WiFi network with the values of SSID & password
                         //3.1 if it fails, we make the ESP in the WiFi AP mode and inform the user in the Web page 
                           entrainDeSeconnecter = "debutConnect"; //indicates that the status of the current connection is at the beginning (i.e. we have just started a connection attempt)
-                          Serial.println("Status of the connection: "+entrainDeSeconnecter);//<-------------------------------- this is for debug purposes, to be removed when all tests are completed 
+                          Serial.println("Status of the connection: "+entrainDeSeconnecter);//<--- this is for debug purposes, to be removed when all tests are completed 
                           orderDeConnexion = true; //indicates that we just triggered an order of connection to an existing A.P.
                         
                          
@@ -512,21 +525,26 @@ void connectESPauReseauWiFiSinonDevientAP(){
         /*
         I uncommented the 2 previous lines for the following reason:
           - The logic was to use the WIFI_STA mode to connect the ESP8266 to the existing network, BUT NO:
-          - In fact, when sending a connection request, the page does not load at all client side. See this error reported on https://github.com/esp8266/Arduino/issues/1384 
+          - In fact, when sending a connection request, the page does not load at all client side. See this error reported on 
+          https://github.com/esp8266/Arduino/issues/1384 
           (message from bachi76 and hakeemta) : 
 
           Citation :
-          "Just to confirm: Indeed, if WIFI_STA was set I experienced constant websocket connection interruptions, usually 1-2 times / min. :
+          "Just to confirm: Indeed, if WIFI_STA was set I experienced constant websocket connection interruptions, usually 1-2 times 
+          / min. :
           
           WiFi.mode(WIFI_STA);
           WiFi.begin(..., ...);
-          Setting WiFi.mode(WIFI_AP); has completely solved this, even though the ESP connects to the existing network as if were in STA mode..
+          Setting WiFi.mode(WIFI_AP); has completely solved this, even though the ESP connects to the existing network as if were in 
+          STA mode..
           
           WiFi.mode(WIFI_AP);
           WiFi.begin(..., ...);
-          (I need to connect to an existing network - so using WIFI_AP is actually wrong, but apparently still connecting if the specified network already exists).
+          (I need to connect to an existing network - so using WIFI_AP is actually wrong, but apparently still connecting if the 
+          specified network already exists).
           
-          With WIFI_STA mode set I couldn't get a stable websocket connection. Tested with two devices to be sure. Looks like a bug to me. @igrr ?        
+          With WIFI_STA mode set I couldn't get a stable websocket connection. Tested with two devices to be sure. Looks like a bug to me. 
+          @igrr ?        
           "
         
         */

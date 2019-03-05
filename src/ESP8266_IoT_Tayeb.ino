@@ -2,7 +2,10 @@
 
 Connected Object (Thing) from A to Z
 Author: Tayeb LEMLOUMA
-Contact: Tayeb.Lemlouma@irisa.fr
+Tayeb.Lemlouma@irisa.fr
+
+Web : www.lemlouma.com
+Github: github.com/lemlouma/
 2018 ©
 
 This code is used to make any ESP8266 (version 01 or ESP01) card as a connected object (or Thing). The code allows preconfiguring the ESP01

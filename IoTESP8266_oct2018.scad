@@ -1,4 +1,4 @@
-//----------------------------- ATTACHES
+//----------------------------- ATTACHES adaptés
 deltaVide= 0.2;
 rayonArrondi = 0.5;
 epaisseurCubeContenant = 0.11;

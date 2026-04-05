@@ -6,7 +6,7 @@ Tayeb.Lemlouma@irisa.fr
 
 Web : www.lemlouma.com
 Github: github.com/lemlouma/
-2018 ©
+2018 - 2026 ©
 
 This code is used to make any ESP8266 (version 01 or ESP01) card as a connected object (or Thing). The code allows preconfiguring the ESP01
 to automatically connect to an existing  WiFi access point (A.P.) of the LAN or to make the ESP01 acts as an independent A.P.  that can be 
@@ -453,7 +453,7 @@ void loop() {
 
 
   client.println("</br>");//<--- HTML page content
-  client.println("<a href=\"http://www.lemlouma.com\" target=\"_blank\">Smart Power Plug<br/> Tayeb L. Aug. 2018 &copy;</a></br>");//<--- HTML page content
+  client.println("<a href=\"http://www.lemlouma.com\" target=\"_blank\">Smart Power Plug<br/> Tayeb L. Aug. 2018-2026 &copy;</a></br>");//<--- HTML page content
 
   client.println("</br>");      //<--- HTML page content
   client.println("</body>");    //<--- HTML page content
